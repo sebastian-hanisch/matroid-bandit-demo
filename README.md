@@ -1,7 +1,6 @@
 # Matroid-Bandits – die beste Basis lernen – Streamlit-Demo
 
-<!-- TODO nach dem Deploy: direkt hierher den Live-Link setzen (Leerzeile davor und danach):
-**[→ Demo live ausprobieren](https://sebastianhanisch-matroid-bandit-demo.streamlit.app/)** -->
+**[→ Demo live ausprobieren](https://sebastianhanisch-matroid-bandit-demo.streamlit.app/)**
 
 Vierzehntes Stück der Reihe **Matroide und Submodularität** (Bereich Kombinatorik; ein **gelbes** Stück, einzeln nach Stück 13 entschieden) in der „Konzepte“-Reihe für die Website „Sebastian Hanisch – Operations Research und Machine Learning“. In den Stücken davor waren die Nutzen der Leitungen bekannt oder kamen einzeln. Hier sind sie **unbekannt und verrauscht**: In jeder Runde wählt man eine **Basis** des Matroids (eine maximale zulässige Leitungsmenge), sieht für **jede gewählte Leitung** eine Ziehung (Erfolg oder Misserfolg mit unbekannter Wahrscheinlichkeit μ) und will über viele Runden nahe an der besten Basis bleiben. Gemessen wird das **Bedauern**: der entgangene erwartete Nutzen gegen die beste Basis, summiert über alle Runden. Vier Verfahren auf derselben Instanz: **optimistisches Greedy (OMM)**, **ε-Greedy**, die **zufällige Basis** und **UCB über Basen** (jede Basis ein Arm, nur ihre Summe als Rückmeldung, also ohne Struktur).
 
