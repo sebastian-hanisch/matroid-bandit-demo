@@ -189,7 +189,7 @@ def verdict_ex1(rows) -> tuple[str, str]:
     w = {a: by[("Wald", a)] for a in E1_KEYS}
     f4 = {a: by[("4 Farben", a)] for a in E1_KEYS}
     return "info", (f"Auf dem Wald des Plans nach {zahl(T)} Runden (Lücke 0,2): OMM mit c = 1,5 **{de(w['omm'], 1)}**, mit c = 0,25 **{de(w['omm025'], 1)}**, ε-Greedy **{de(w['eps'], 1)}**, Zufall **{de(w['zufall'], 1)}**, UCB über Basen **{de(w['ubas'], 1)}**. "
-                    f"Bei 4 Farben (144 Basen): OMM **{de(f4['omm'], 1)}**, UCB über Basen **{de(f4['ubas'], 1)}** gegen Zufall **{de(f4['zufall'], 1)}**: Ohne Struktur lernt das Verfahren in dieser Zeit praktisch nichts, "
+                    f"Bei 4 Farben (144 Basen): OMM **{de(f4['omm'], 1)}**, UCB über Basen **{de(f4['ubas'], 1)}** gegen Zufall **{de(f4['zufall'], 1)}**: Ohne Struktur lernt das Verfahren in dieser Zeit mit der Standardkonstante praktisch nichts, "
                     f"mit der Struktur (Greedy auf Indizes je Arm) schon.")
 
 
@@ -227,7 +227,7 @@ def verdict_ex2(rows) -> tuple[str, str]:
     no = [num(r["delta"]) for r in rows if not r["in_phase"]]
     last = "; ".join(f"Δ = {num(r['delta'])}: {de(r['increments'][-2], 1)} und {de(r['increments'][-1], 1)}" for r in rows)
     return "info", (f"Zuwächse des Bedauerns bei den letzten beiden Verdopplungen von T (2 000 auf 4 000 und 4 000 auf 8 000): {last}. "
-                    f"Ein **konstanter** Zuwachs je Verdopplung bedeutet logarithmisches Wachstum: Das ist bei Δ = {', '.join(yes) if yes else '–'} erreicht und bei Δ = {', '.join(no) if no else '–'} **noch nicht**: Die logarithmische Phase beginnt erst für T ≫ n/Δ².")
+                    f"Ein **konstanter** Zuwachs je Verdopplung bedeutet logarithmisches Wachstum: Das ist bei Δ = {', '.join(yes) if yes else '–'} erreicht und bei Δ = {', '.join(no) if no else '–'} **noch nicht**: Die logarithmische Phase beginnt erst für T ≫ n/Δ² (Faustregel); die Zuwächse einer Messung mit 20 Läufen streuen, das Urteil bei mittlerer Lücke hängt an der Schwelle.")
 
 
 # Experiment 3: Bedauern gegen die Lücke
@@ -293,7 +293,7 @@ def verdict_ex4(res) -> tuple[str, str]:
     wald = [r for r in res["vs"] if r["matroid"] == "Wald"]
     card = [r for r in res["vs"] if r["matroid"] == "Kardinalität"]
     return "info", (f"Bei Kardinalität 3 und {ns} Armen (Lücke 0,2, T = 2 000): Bedauern **{reg}**; bei {last['n']} Armen liegt es nahe am höchstmöglichen Wert **{de(last['max'], 0)}**: T = 2 000 ist dort noch zu kurz. "
-                    f"Wald und Kardinalität gleichen Rangs (10, 28, 66 Arme): Wald **{' / '.join(de(r['regret'], 1) for r in wald)}**, Kardinalität **{' / '.join(de(r['regret'], 1) for r in card)}**: Die Art des Matroids spielt kaum eine Rolle, die Armzahl und die Lücke schon.")
+                    f"Wald und Kardinalität gleichen Rangs (10, 28, 66 Arme): Wald **{' / '.join(de(r['regret'], 1) for r in wald)}**, Kardinalität **{' / '.join(de(r['regret'], 1) for r in card)}**: Bei gleichem Rang und gleicher Armzahl spielt die Art des Matroids kaum eine Rolle, der Rang, die Armzahl und die Lücke schon.")
 
 
 # Experiment 5: Die Konstante und ε-Greedy

@@ -43,9 +43,9 @@ PRESETS = {
     "Ohne Struktur": {"inst": "plan", "v": 8, "seed": 8, "cons": "farbe", "k": 4, "mus": "zwei", "delta": 0.2, "T": 2000, "c": 1.5, "rseed": 1},
 }
 PRESET_HELP = {
-    "Standardfall (Voreinstellung)": "Plan der Reihe, Wald (1 049 Basen), Lücke 0,2, 2 000 Runden, Konstante 1,5: OMM 223 Bedauern, ε-Greedy 104, Zufall 1 390, UCB über Basen (ohne Struktur) 1 360. Die Struktur lernt, die Strukturlosigkeit nicht.",
+    "Standardfall (Voreinstellung)": "Plan der Reihe, Wald (1 049 Basen), Lücke 0,2, 2 000 Runden, Konstante 1,5: OMM 223 Bedauern, ε-Greedy 104, Zufall 1 390, UCB über Basen (ohne Struktur) 1 360. Mit der Standardkonstante lernt die Struktur, die Strukturlosigkeit nicht.",
     "Kleine Konstante": "Wie der Standardfall, aber Konstante 0,25: OMM erreicht 50 statt 223 und liegt unter ε-Greedy (104). Die Konstante ist ein Regler, kein Detail.",
     "Kleine Lücke": "Lücke 0,05, 5 000 Runden: OMM 441 gegen Zufall 870. Bei so kleiner Lücke kommt das Lernen kaum voran; das Wachstum ist noch nicht logarithmisch (Experiment 2).",
     "Viele Arme": "Großer Plan mit 12 Standorten (66 Leitungen, Wald): OMM 1 510, ε-Greedy 577, Zufall 3 652; UCB über Basen ist wegen 61 917 364 224 Basen nicht anwendbar. 2 000 Runden sind für 66 Arme noch zu kurz.",
-    "Ohne Struktur": "4 Kabelfarben (144 Basen): OMM 276, UCB über Basen 1 103 bei Zufall 1 131: Wer nur die Summe jeder Basis sieht, lernt in 2 000 Runden praktisch nichts.",
+    "Ohne Struktur": "4 Kabelfarben (144 Basen): OMM 276, UCB über Basen 1 103 bei Zufall 1 131: Wer nur die Summe jeder Basis sieht, lernt in 2 000 Runden mit der Standardkonstante praktisch nichts.",
 }

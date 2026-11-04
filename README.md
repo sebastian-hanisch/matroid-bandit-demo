@@ -13,14 +13,14 @@ Wer die besten Leitungen nicht kennt, muss sie beim Verlegen lernen und zahlt da
 
 ## Befunde und Korrekturen gegenüber dem Plan
 
-- **Logarithmisch ja, aber spät.** Das Wachstum ist erst für T ≫ n/Δ² logarithmisch (konstanter Zuwachs je Verdopplung von T); bei kleiner Lücke ist es in 8 000 Runden noch nicht erreicht. „Bedauern / ln T“ zeigt das nicht, der Zuwachs je Verdopplung schon.
+- **Logarithmisch ja, aber spät.** Das Wachstum ist erst für T ≫ n/Δ² logarithmisch (konstanter Zuwachs je Verdopplung von T; n/Δ² ist eine Faustregel, nicht gemessen); bei kleiner Lücke ist es in 8 000 Runden noch nicht erreicht. Bei Δ = 0,4 ist der Zuwachs am Ende konstant, bei Δ = 0,1 und 0,05 nicht; die Zuwächse der 20-Läufe-Messung streuen um etwa ±15 %, das Urteil bei Δ = 0,2 hängt deshalb an der Schwelle und kippt mit mehr Läufen. „Bedauern / ln T“ zeigt das nicht, der Zuwachs je Verdopplung schon.
 - **Die Konstante entscheidet im Kurzbereich.** OMM mit c = 0,25 statt 1,5 hat bei Lücke 0,2 und 2 000 Runden etwa ein Drittel des Bedauerns. Die Konstante 1,5 ist die der Planung (nicht gegen den Primärtext geprüft).
 - **ε-Greedy ist im Mittel stark, aber riskant:** gutes Mittel, aber schwere Ränder und am Ende nicht immer die beste Basis.
 - **„Findet die beste Basis“ gilt nicht in jedem Lauf** (Standardkonstante, Lücke 0,05, 2 000 Runden: nur wenige von 30 Läufen).
-- **Ohne Struktur** (jede Basis ein Arm, nur die Summe) lernt das Verfahren bei 144 bis 1 049 Basen in 2 000 Runden praktisch nichts.
-- **Die Art des Matroids spielt kaum eine Rolle** (Wald gegen Kardinalität bei gleicher Armzahl und gleicher Lücke); die Armzahl und die Lücke schon.
+- **Ohne Struktur** (jede Basis ein Arm, nur die Summe) lernt das Verfahren in der hier gerechneten Standardstärke bei 144 bis 1 049 Basen in 2 000 Runden praktisch nichts; bei 1 049 Basen verbraucht schon das einmalige Ausprobieren aller Basen etwa die Hälfte der Runden.
+- **Die Art des Matroids spielt kaum eine Rolle** (Wald gegen Kardinalität bei gleicher Armzahl, gleichem Rang und gleicher Lücke, zwei Stufen); der Rang, die Armzahl und die Lücke schon.
 - **Bei festem T ist das Bedauern nicht monoton in der Lücke:** bei sehr kleiner Lücke kostet jeder falsche Zug fast nichts.
-- **Die Zahlen der App weichen von Phase 0 leicht ab** (andere Instanzen und Seeds, 20 statt 30 Läufe in Experiment 2 und 3): Das Muster ist gleich; bei Lücke 0,2 ist der Zuwachs je Verdopplung in der App am Ende noch leicht wachsend (nicht konstant).
+- **Die Zahlen der App weichen von Phase 0 leicht ab** (andere Instanzen und Seeds, 20 statt 30 Läufe in Experiment 2 und 3): Das Muster ist gleich; bei Lücke 0,2 ist der Zuwachs je Verdopplung in der App am Ende noch leicht wachsend (nicht konstant; dieses Urteil ist bei 20 Läufen unsicher).
 - **Port 9354;** Repo `matroid-bandit-demo`, Präfix `mbd_`; nur Streamlit, Plotly und fpdf2 zur Laufzeit (reine Python-Arithmetik, kein numpy).
 
 ## Modell
@@ -64,9 +64,9 @@ Alle Zahlen stehen in `tests/test_claims.py` und werden dort mit den Funktionen 
 - **Die Konstante** c = 1,5 ist die der Planung, nicht gegen den Primärtext geprüft; kleinere Werte liefern im Kurzbereich viel weniger Bedauern, ohne dass die Demo eine Garantie dafür nennt.
 - **Logarithmisches Wachstum ist asymptotisch.** Bei kleiner Lücke und vielen Armen ist es in den gezeigten Zeiträumen nicht erreicht.
 - **UCB über Basen** nur bei höchstens 3 000 Basen und nur in Standardstärke gerechnet; abgestimmte Konstanten verbessern es (in der Planung gemessen, hier nicht gebaut).
-- **Nur Kardinalität, Farben und Wald; höchstens 66 Arme.** Die Matroid-Art spielt in diesen Messungen kaum eine Rolle; für andere Matroide und größere Instanzen ist nichts gemessen.
+- **Nur Kardinalität, Farben und Wald; höchstens 66 Arme.** Die Matroid-Art spielt bei gleichem Rang und gleicher Armzahl in diesen Messungen kaum eine Rolle; für andere Matroide und größere Instanzen ist nichts gemessen.
 - **Kein Thompson-Sampling, kein KL-Index, keine Zeitmessung;** die Schranken der Literatur sind nicht genannt.
-- **Quellen nur als Auszüge** (arXiv 1403.5045 zu Matroid-Bandits, arXiv 2512.00605 zu späteren Verbesserungen; Websuche): Form des Bonus, Konstante und Schranken sind nicht übernommen und nicht gegen die Primärtexte geprüft.
+- **Quellen nur als Auszüge** (arXiv 1403.5045 zu Matroid-Bandits, arXiv 2512.00605 zu späteren Arbeiten mit geringerer Rechenzeit bei gleichem Bedauern; Websuche): Form des Bonus, Konstante und Schranken sind nicht übernommen und nicht gegen die Primärtexte geprüft.
 
 ## Verifikation
 

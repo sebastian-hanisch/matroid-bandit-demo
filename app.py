@@ -288,8 +288,8 @@ st.markdown(
 | **Feste, unabhängige Erfolgswahrscheinlichkeiten** | Die Erfolge werden unabhängig aus festen μ gezogen. Gegnerische oder sich ändernde Nutzen sind nicht gebaut. **(nicht in dieser Reihe)** |
 | **Nur zwei Verteilungen der μ** | Zwei Stufen (alle Lücken gleich) und gleichverteilt; keine schweren Ränder, keine Gauß-Rauschen. **(nicht allgemein)** |
 | **Die Konstante** | Die Bonus-Konstante c = 1,5 ist die der Planung (nicht gegen den Primärtext geprüft); kleinere Werte liefern im Kurzbereich viel weniger Bedauern (Experiment 5), ohne dass die Demo eine Garantie dafür nennt. **(nicht geprüft)** |
-| **Logarithmisches Wachstum ist asymptotisch** | Es beginnt erst für T ≫ n/Δ²; bei kleiner Lücke und vielen Armen ist es in den gezeigten Zeiträumen noch nicht erreicht (Experiment 2 und 4). **(Literatur, hier gemessen)** |
-| **Nur Kardinalität, Farben und Wald; Instanzen mit höchstens 66 Armen** | Die Art des Matroids spielt in den Messungen kaum eine Rolle; für andere Matroide und größere Instanzen ist nichts gemessen. **(nicht allgemein)** |
+| **Logarithmisches Wachstum ist asymptotisch** | Es beginnt erst für T ≫ n/Δ² (Faustregel, nicht gemessen); bei kleiner Lücke und vielen Armen ist es in den gezeigten Zeiträumen noch nicht erreicht (Experiment 2 und 4). **(Literatur, hier gemessen)** |
+| **Nur Kardinalität, Farben und Wald; Instanzen mit höchstens 66 Armen** | Die Art des Matroids spielt bei gleichem Rang und gleicher Armzahl in den Messungen kaum eine Rolle; für andere Matroide und größere Instanzen ist nichts gemessen. **(nicht allgemein)** |
 | **UCB über Basen nur bei höchstens 3 000 Basen** | Darüber ist die Aufzählung zu groß; die Demo zeigt „nicht anwendbar“. Das Verfahren ist in Standardstärke gerechnet; abgestimmte Konstanten würden es verbessern. **(Messung)** |
 | **Literaturschranken nicht genannt** | Die lückenabhängige Schranke ist in der Literatur auf Partitionsmatroiden scharf (Auszug, nicht gegen den Primärtext geprüft); die Demo nennt keine Formel. **(Literatur)** |
 """
@@ -314,7 +314,7 @@ with st.expander("📐 Mathematische Formulierung"):
 
 **Logarithmisches Wachstum.** Wächst $R(T)$ wie $a \ln T$, ist $R(2T) - R(T) \approx a \ln 2$ konstant; das prüft Experiment 2.
 
-**Literatur.** Matroid-Bandits mit Rückmeldung je Element und optimistischem Greedy (Kveton et al., UAI 2014; [arXiv 1403.5045](https://arxiv.org/pdf/1403.5045)) und spätere Arbeiten zu besserem asymptotischem Bedauern ([arXiv 2512.00605](https://arxiv.org/html/2512.00605v1)). Quelle: Websuche, Auszüge, nicht gegen die Primärtexte geprüft; die Form des Bonus und die Schranken sind hier nicht übernommen, nur gemessen.
+**Literatur.** Matroid-Bandits mit Rückmeldung je Element und optimistischem Greedy (Kveton et al., UAI 2014; [arXiv 1403.5045](https://arxiv.org/pdf/1403.5045)) und spätere Arbeiten zu geringerer Rechenzeit bei gleichem Bedauern ([arXiv 2512.00605](https://arxiv.org/html/2512.00605v1)). Quelle: Websuche, Auszüge, nicht gegen die Primärtexte geprüft; die Form des Bonus und die Schranken sind hier nicht übernommen, nur gemessen.
         """
     )
 
